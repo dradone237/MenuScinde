@@ -1,0 +1,56 @@
+html,
+body{
+    width: 100vw; /* affichage 100% la largeur  a l'ecran */
+    height: 100vh; /* affichage 100% la hauteur  a l'ecran */
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body{ /* ici on sible directement le body */
+    background: rgb(216,209,209); /* couleur gris */
+    display: flex; /* utilise pour creer un conteneur flexible connu sur le nomde flexbox et lorsque il es app;ique a un element comme div il permet de controler le positionement,la dimension et l'alignement de ses elements enfants  */
+    align-items: center; /* utilise pour centre le texte sur y */
+    justify-content: center;/* utilise pour centre le texte sur x qui serais bien centre au milieu */
+}
+h1{
+    font-size: 20px;
+    padding-bottom: 150px;
+}
+.btn {
+    position: fixed;/* utilise pour positionner un element fixe parapport a la fenetre du navigateur indepandamment du defilement de la page */
+    left: 40px; /* definis  la position horizontale et de son decalage de 40px a partir de la  gauche de son compteneur parent vers la droite */ 
+    top: 30px; /* definis  la position vertical et de son decalage de 30px a patir du haut de son conteneur parent parapport a la position normale*/ 
+    text-decoration: none; /* est utilise pour supprimer les decoration de texte pas defaut tel que les soulignement ou les lignes a traver le texte */
+    border-radius: 5px; /*en CSS est utilisée pour appliquer un rayon de bordure arrondi à un élément. Elle permet de spécifier le degré d'arrondi des coins de l'élément en utilisant une valeur de rayon donnée. */
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(137,131, 228);
+    z-index: 1000; /*est utilisé pour définir la valeur de l'index de position du boutton le boutton va reste a la fois dans le menu et dans l'acceuil*/
+}
+.menuIcom{
+    width: 40px;
+}
+.conteneurMenu{
+    background: linear-gradient(45deg, rgb(137,131,228),rgb(248,138,138)); /* en CSS est utilisée pour créer un dégradé linéaire comme arrière-plan du menu. Elle définit les couleurs et l'orientation du dégradé. En utilisant ces propriétés, le dégradé linéaire sera créé en mélangeant progressivement les couleurs du violet au rouge en suivant l'angle de 45 degrés spécifié. */
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+}
+.listeMenu {
+    padding: 0;
+    margin-top: 240px;
+    font-size: 68px;
+    line-height: 1,2;/* en CSS est utilisée pour définir la hauteur de ligne du menu. La propriété line-height contrôle l'espace vertical entre les lignes de texte à l'intérieur du menu.*/
+    text-transform: uppercase; /* en CSS est utilisée pour transformer le texte du menu en toutes lettres majuscules (en majuscules).*/
+    display: flex;
+    flex-direction: column;/* flex-direction: column; est utilisé pour définir la direction principale de l'agencement en colonne des éléments du menu  à l'intérieur d'un conteneur flexible. Les éléments seront empilés verticalement, de haut en bas.*/
+    align-items: center;/* uilise pour centre le texte au milieu*/
+
+
+}
