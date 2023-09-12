@@ -8,13 +8,15 @@ body{
 }
 body{ /* ici on sible directement le body */
     background: rgb(216,209,209); /* couleur gris */
-    display: flex; /* utilise pour creer un conteneur flexible connu sur le nomde flexbox et lorsque il es app;ique a un element comme div il permet de controler le positionement,la dimension et l'alignement de ses elements enfants  */
+    display: flex; /* utilise pour creer un conteneur flexible connu sur le nom de flexbox et lorsque il es app;ique a un element comme div il permet de controler le positionement,la dimension et l'alignement de ses elements enfants  */
     align-items: center; /* utilise pour centre le texte sur y */
     justify-content: center;/* utilise pour centre le texte sur x qui serais bien centre au milieu */
 }
 h1{
     font-size: 20px;
     padding-bottom: 150px;
+    margin-left: 150px;
+
 }
 .btn {
     position: fixed;/* utilise pour positionner un element fixe parapport a la fenetre du navigateur indepandamment du defilement de la page */
@@ -22,8 +24,8 @@ h1{
     top: 30px; /* definis  la position vertical et de son decalage de 30px a patir du haut de son conteneur parent parapport a la position normale*/ 
     text-decoration: none; /* est utilise pour supprimer les decoration de texte pas defaut tel que les soulignement ou les lignes a traver le texte */
     border-radius: 5px; /*en CSS est utilisée pour appliquer un rayon de bordure arrondi à un élément. Elle permet de spécifier le degré d'arrondi des coins de l'élément en utilisant une valeur de rayon donnée. */
-    width: 90px;
-    height: 90px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,7 +38,7 @@ h1{
 .conteneurMenu{
     background: linear-gradient(45deg, rgb(137,131,228),rgb(248,138,138)); /* en CSS est utilisée pour créer un dégradé linéaire comme arrière-plan du menu. Elle définit les couleurs et l'orientation du dégradé. En utilisant ces propriétés, le dégradé linéaire sera créé en mélangeant progressivement les couleurs du violet au rouge en suivant l'angle de 45 degrés spécifié. */
     height: 100%;
-    width: 100%;
+    width: 0; /* modification la derniere video sur le css*/
     position: fixed;
     top: 0;
     left: 0;
@@ -45,12 +47,75 @@ h1{
 .listeMenu {
     padding: 0;
     margin-top: 240px;
-    font-size: 68px;
+    font-size: 20px;
     line-height: 1,2;/* en CSS est utilisée pour définir la hauteur de ligne du menu. La propriété line-height contrôle l'espace vertical entre les lignes de texte à l'intérieur du menu.*/
     text-transform: uppercase; /* en CSS est utilisée pour transformer le texte du menu en toutes lettres majuscules (en majuscules).*/
     display: flex;
     flex-direction: column;/* flex-direction: column; est utilisé pour définir la direction principale de l'agencement en colonne des éléments du menu  à l'intérieur d'un conteneur flexible. Les éléments seront empilés verticalement, de haut en bas.*/
     align-items: center;/* uilise pour centre le texte au milieu*/
 
+}
+.listeMenu a {
+    text-decoration: none;
+}
+.menuListItem{
+    position: relative; /* L'attribut CSS position: relative; est utilisé pour définir la position relative d'un élément par rapport à sa position normale dans le flux du document. Lorsque vous appliquez cette propriété à un élément, vous pouvez utiliser les propriétés top, right, bottom et left pour le déplacer par rapport à sa position initiale.*/ 
+    margin-top: 20px;
+    color: transparent;
+    list-style-type: none; /* Cela permet de supprimer les puces par défaut de toutes les listes non ordonnées (<ul>) dans votre page HTML.Il s'agit d'une propriété utilisée pour styliser les listes (<ul> et <ol>) en enlevant les puces ou les numéros par défaut.*/
+    cursor: pointer; /* L'attribut CSS cursor: pointer; est utilisé pour changer l'apparence du curseur de la souris lorsqu'il passe au-dessus d'un élément. Lorsque vous appliquez cette règle à un élément, le curseur de la souris prend la forme d'une main pointant, indiquant qu'il est cliquable ou interactif.*/
+    opacity: 0; /* modification la derniere video sur le css  La propriété CSS opacity: 0; est utilisée pour définir la transparence d'un élément. Lorsque vous appliquez cette propriété à un élément avec une valeur de 0, cela signifie que l'élément devient complètement transparent et donc invisible.*/
+    transform: translateX(-100px);
+}
+.itemListe{
+    display: block;/* L'attribut CSS display: block; est utilisé pour modifier le comportement d'affichage d'un élément en tant que bloc. Lorsque vous appliquez cette propriété à un élément, celui-ci se comportera comme un bloc indépendant, prenant tout l'espace horizontal disponible et commençant une nouvelle ligne.*/
+    position: absolute; /* L'attribut CSS position: absolute; est utilisé pour positionner un élément de manière absolue par rapport à son parent positionné ou à l'élément de niveau supérieur qui a une position spécifiée (par défaut, c'est le <body>). Lorsque vous appliquez cette propriété à un élément, il est retiré du flux normal du document et ses coordonnées de position sont spécifiées en utilisant les propriétés top, right, bottom et left.*/
+    overflow: hidden; /* L'attribut CSS overflow: hidden; est utilisé pour contrôler le comportement de débordement du contenu dans un conteneur lorsque celui-ci dépasse les dimensions définies. Lorsque vous appliquez cette propriété à un élément, tout contenu qui dépasse les limites du conteneur sera masqué et ne sera pas visible.*/
+    color:rgb(19, 7,71);
+    top: 0;/* parapport au antre qui  sont les mots place au niveau menuListItem */
+    height: 49%;
+    transition: all 0,8s cubic-bezier(0.16,1.08,0.38,0,98) ; /* animation css*/
+}
+.itemListe span {
+    display: block;
+}
+.itemListe + .itemListe { /* cette action va cible le tous les deuxieme span qui se trouvent dans les class menuListItem */
+    top: 48.9%;  
+}
+.itemListe + .itemListe span {
+    transform: translateY(-49%);
+}
+/* ici on translite les deux span celui du haut et celui du bas */
+.menuListItem:hover .itemListe, /* pour le premier span*/
+.menuListItem:active .itemListe { 
+    color: #fff;
+    transform: skewX(12deg) translateX(5px);
 
+}
+.menuListItem:hover .itemListe + .itemListe, /* pour le deuxiem span*/
+.menuListItem:active .itemListe + .itemListe { 
+    color: #fff;
+    transform: skewX(12deg) translateX(-5px);
+
+}
+.menuListItem::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 49%;
+    left: -10%;
+    right: -10%;
+    height: 4px;
+    border-radius: 4px;
+    margin-top: -2px;
+    background: #ff2c75;
+    transform: scale(0);/* La propriété CSS transform: scale(0); est utilisée pour appliquer une transformation de mise à l'échelle à un élément. Lorsque vous utilisez cette propriété avec la valeur scale(0), cela signifie que l'élément sera réduit à une taille nulle, rendant l'élément complètement invisible.*/
+    transition: transform 0.8s cubic-bezier(0.16,1.08,0.38,0,98); /* animation css*/
+    z-index: 1; /* ce qui va permettre au trait de passe en avant  */
+}
+
+.menuListItem:hover::before, /* ce qui se passe des lors on va survole les differents du menu */
+.menuListItem:active::before {
+    transform: scale(1);
+    
 }
